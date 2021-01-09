@@ -5,15 +5,13 @@ const resultA = document.querySelector("#resultA")
 const resultB = document.querySelector("#resultB")
 const tichuA = document.querySelector("#tichuA")
 const reset = document.querySelector('#resetscore')
-const undoscore = document.querySelector("#undo")
 let finalscoreA = 0;
 let finalscoreB = 0;
 
 //adds score 
 function addscore (){
     submit.addEventListener('click', ()=>{
-
-    if (scoreA.value <= 125 && scoreA.value >=-25){
+    if (scoreA.value <= 125 && scoreA.value >=-25){ 
     finalscoreA = finalscoreA + parseInt(scoreA.value)
     resultA.innerHTML = finalscoreA;
     finalscoreB = finalscoreB + Math.abs(100 - parseInt(scoreA.value))
@@ -21,6 +19,7 @@ function addscore (){
     } else{alert("wrong score")}
     })
 }
+
 
 //announces the winner of the game 
 function winner(teamA,teamB){
@@ -30,8 +29,7 @@ function winner(teamA,teamB){
        alert("Team B Wins")}
 }
 
-
-// resets score back to zero
+// resets score back to zero for new game
 function resetscore(){
     reset.addEventListener('click',()=>{
       resultA.innerHTML = 0;
@@ -41,16 +39,10 @@ function resetscore(){
     })
 }
 
-function undo(){
-    undoscore.addEventListener('click',()=>{
-        finalscoreA = finalscoreA - finalscoreA
-        finalscoreB = finalscoreB - finalscoreB
-    })
-}
+
 
 addscore();
 resetscore();
-undo();
 
 
 
