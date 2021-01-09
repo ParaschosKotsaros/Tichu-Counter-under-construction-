@@ -12,6 +12,9 @@ let finalscoreB = 0;
 function addscore (){
     submit.addEventListener('click', ()=>{
     if (scoreA.value <= 125 && scoreA.value >=-25){ 
+    document.getElementById("details1").innerHTML += `<span id="details1">${scoreA.value}</span></br>`
+    document.getElementById("details2").innerHTML += `<span id="details1">${Math.abs(100 - scoreA.value)}</span></br>`
+
     finalscoreA = finalscoreA + parseInt(scoreA.value)
     resultA.innerHTML = finalscoreA;
     finalscoreB = finalscoreB + Math.abs(100 - parseInt(scoreA.value))
@@ -32,6 +35,10 @@ function winner(teamA,teamB){
 // resets score back to zero for new game
 function resetscore(){
     reset.addEventListener('click',()=>{
+      if(document.getElementById('details1'){
+        document.getElementById('details1') = '';
+      }
+      
       resultA.innerHTML = 0;
       resultB.innerHTML = 0;
       finalscoreA = 0;
