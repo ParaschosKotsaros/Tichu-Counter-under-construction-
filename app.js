@@ -35,10 +35,6 @@ function winner(teamA,teamB){
 // resets score back to zero for new game
 function resetscore(){
     reset.addEventListener('click',()=>{
-      if(document.getElementById('details1'){
-        document.getElementById('details1') = '';
-      }
-      
       resultA.innerHTML = 0;
       resultB.innerHTML = 0;
       finalscoreA = 0;
