@@ -10,19 +10,21 @@ let finalscoreB = 0;
 
 //adds score 
 function addscore (){
-    submit.addEventListener('click', ()=>{
-    if (scoreA.value <= 125 && scoreA.value >=-25){ 
-      // shows the score of every round
-    document.getElementById("details1").innerHTML +=`<span class="details1">${scoreA.value}</span></br>`
-    document.getElementById("details2").innerHTML +=`<span class="details2">${Math.abs(100 - scoreA.value)}</span></br>`
-    finalscoreA = finalscoreA + parseInt(scoreA.value)
-    resultA.innerHTML = finalscoreA;
-    finalscoreB = finalscoreB + Math.abs(100 - parseInt(scoreA.value))
-    resultB.innerHTML = finalscoreB;  
+  submit.addEventListener('click', ()=>{
+  if (scoreA.value <= 125 && scoreA.value >=-25){ 
+    // shows the score of every round
+  document.getElementById("details1").innerHTML +=`<span class="details1">${scoreA.value}</span></br>`
+  document.getElementById("details2").innerHTML +=`<span class="details2">${Math.abs(100 - scoreA.value)}</span></br>`
+   
+  finalscoreA = finalscoreA + parseInt(scoreA.value)
+  resultA.innerHTML = finalscoreA;
+  scoreB.value = Math.abs(100 - parseInt(scoreA.value))
+  finalscoreB = finalscoreB + Math.abs(100 - parseInt(scoreA.value))
+  resultB.innerHTML = finalscoreB;  
 
-    winner(finalscoreA,finalscoreB)
-    } else{alert("wrong score")}
-    })
+  winner(finalscoreA,finalscoreB)
+  } else{alert("wrong score")}
+  })
 }
 //announces the winner of the game 
 function winner(teamA,teamB){
@@ -54,10 +56,16 @@ function resetscore(){
     })
 }
 
+function inputUpdate(){
+  scoreA.addEventListener("keyup", ()=>{
+   scoreB.value = Math.abs(100-scoreA.value);
+  });
+  scoreB.addEventListener("keyup", ()=>{
+    scoreA.value = Math.abs(100 - scoreB.value);
+  })
+}
 
-
+inputUpdate();
 addscore();
 resetscore();
-
-
 
