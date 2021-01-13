@@ -3,19 +3,31 @@ const scoreA = document.querySelector("#addscoreA")
 const scoreB = document.querySelector("#addscoreB")
 const resultA = document.querySelector("#resultA")
 const resultB = document.querySelector("#resultB")
-const tichuA = document.querySelector("#tichuA")
 const reset = document.querySelector('#resetscore')
+//buttons  
+const tichuA = document.querySelector("#tichuA")
+const tichuB = document.querySelector("#tichuB")
+const grandA = document.querySelector("#grandA")
+const grandB = document.querySelector("#grandB")
+const tichuFailA = document.querySelector("#tichufailA")
+const tichuFailB = document.querySelector("#tichufailB")
+const grandFailA = document.querySelector("#grandfailA")
+const grandFailB = document.querySelector("#grandfailB")
+
+
 let finalscoreA = 0;
 let finalscoreB = 0;
 
+
+
 //adds score 
-function addscore (){
+function addscore(){
   submit.addEventListener('click', ()=>{
   if (scoreA.value <= 125 && scoreA.value >=-25){ 
     // shows the score of every round
   document.getElementById("details1").innerHTML +=`<span class="details1">${scoreA.value}</span></br>`
   document.getElementById("details2").innerHTML +=`<span class="details2">${Math.abs(100 - scoreA.value)}</span></br>`
-   
+
   finalscoreA = finalscoreA + parseInt(scoreA.value)
   resultA.innerHTML = finalscoreA;
   scoreB.value = Math.abs(100 - parseInt(scoreA.value))
@@ -29,9 +41,12 @@ function addscore (){
 //announces the winner of the game 
 function winner(teamA,teamB){
   if(teamA>=1000 && teamA>teamB){
-      alert("Team A Wins")}
+      alert("Team A Wins")
+      resetscore();
+  }
    else if (teamB >=1000 && teamB > teamA){
        alert("Team B Wins")}
+       resetscore();
 }
 
 // resets score back to zero for new game
@@ -56,6 +71,7 @@ function resetscore(){
     })
 }
 
+
 function inputUpdate(){
   scoreA.addEventListener("keyup", ()=>{
    scoreB.value = Math.abs(100-scoreA.value);
@@ -65,6 +81,46 @@ function inputUpdate(){
   })
 }
 
+
+// button functions for Team A
+function tichu1(){
+   tichuA.addEventListener('click',()=>{
+       finalscoreA +=100;})}
+
+function tichuFail1(){
+  tichuB.addEventListener('click',()=>{
+      finalscoreB -=100;})}
+
+function grand1(){
+  grandA.addEventListener('click',()=>{
+      finalscoreA +=200;})}
+
+function grandFail1(){
+  grandFailA.addEventListener('click',()=>{
+      finalscoreA -=200})}
+
+// button functions for Team B
+function tichu2(){
+  tichuB.addEventListener('click',()=>{
+      finalscoreB +=100})}
+
+function grandtichu2(){
+    grandtichuB.addEventListener('click',()=>{
+        finalscoreB +=200})}
+
+ function tichuFail2(){
+  tichuFailB.addEventListener('click',()=>{
+      finalscoreB -=100})}
+
+  function grandfail2(){
+        grandFailB.addEventListener('click',()=>{
+            finalscoreB -=200})}
+ 
+  
+
+
+
+tichu1()
 inputUpdate();
 addscore();
 resetscore();
