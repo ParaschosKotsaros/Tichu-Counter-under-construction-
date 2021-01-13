@@ -88,7 +88,7 @@ function tichu1(){
        finalscoreA +=100;})}
 
 function tichuFail1(){
-  tichuA.addEventListener('click',()=>{
+  tichuFailA.addEventListener('click',()=>{
       finalscoreA -=100;})}
 
 function grandtichu1(){
