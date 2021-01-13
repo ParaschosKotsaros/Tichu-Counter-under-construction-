@@ -9,10 +9,10 @@ const tichuA = document.querySelector("#tichuA")
 const tichuB = document.querySelector("#tichuB")
 const grandA = document.querySelector("#grandA")
 const grandB = document.querySelector("#grandB")
-const tichuFailA = document.querySelector("#tichufailA")
-const tichuFailB = document.querySelector("#tichufailB")
-const grandFailA = document.querySelector("#grandfailA")
-const grandFailB = document.querySelector("#grandfailB")
+const tichuFailA = document.querySelector("#tichuFailA")
+const tichuFailB = document.querySelector("#tichuFailB")
+const grandFailA = document.querySelector("#grandFailA")
+const grandFailB = document.querySelector("#grandFailB")
 
 
 let finalscoreA = 0;
@@ -91,7 +91,7 @@ function tichuFail1(){
   tichuB.addEventListener('click',()=>{
       finalscoreB -=100;})}
 
-function grand1(){
+function grandtichu1(){
   grandA.addEventListener('click',()=>{
       finalscoreA +=200;})}
 
@@ -105,7 +105,7 @@ function tichu2(){
       finalscoreB +=100})}
 
 function grandtichu2(){
-    grandtichuB.addEventListener('click',()=>{
+    grandB.addEventListener('click',()=>{
         finalscoreB +=200})}
 
  function tichuFail2(){
@@ -120,7 +120,14 @@ function grandtichu2(){
 
 
 
-tichu1()
+tichu1();
+tichu2();
+grandtichu1();
+grandtichu2();
+grandFail1();
+grandfail2();
+tichuFail1();
+tichuFail2();
 inputUpdate();
 addscore();
 resetscore();
